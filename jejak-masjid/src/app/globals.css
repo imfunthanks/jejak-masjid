@@ -195,11 +195,44 @@ body {
 .hamburger--active span:nth-child(1) {
   transform: translateY(6px) rotate(45deg);
 }
+
 .hamburger--active span:nth-child(2) {
   opacity: 0;
 }
+
 .hamburger--active span:nth-child(3) {
   transform: translateY(-6px) rotate(-45deg);
+}
+
+.navbar-user,
+.navbar-mobile-user {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  padding: 0.5rem 0.75rem;
+}
+
+.navbar-link--outline {
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid var(--border-light);
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.navbar-link--outline:hover {
+  border-color: #dc2626;
+  color: #dc2626;
+  background: rgba(220, 38, 38, 0.04);
+}
+
+.navbar-mobile-link--outline {
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid var(--border-light);
+  text-align: center;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 /* Mobile menu */
@@ -346,12 +379,10 @@ body {
   text-align: center;
   padding: 4rem 1.5rem;
   min-height: 70vh;
-  background: linear-gradient(
-    160deg,
-    var(--bg-main) 0%,
-    rgba(27, 107, 74, 0.04) 50%,
-    rgba(212, 168, 83, 0.06) 100%
-  );
+  background: linear-gradient(160deg,
+      var(--bg-main) 0%,
+      rgba(27, 107, 74, 0.04) 50%,
+      rgba(212, 168, 83, 0.06) 100%);
 }
 
 .hero-badge {
@@ -542,6 +573,7 @@ body {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -553,6 +585,7 @@ body {
     opacity: 0;
     transform: translateX(100px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -560,6 +593,135 @@ body {
 }
 
 @keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   AUTH PAGES
+   ============================================ */
+.auth-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - var(--navbar-height));
+  padding: 2rem 1.5rem;
+  background: linear-gradient(160deg,
+      var(--bg-main) 0%,
+      rgba(27, 107, 74, 0.04) 50%,
+      rgba(212, 168, 83, 0.06) 100%);
+}
+
+.auth-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: var(--shadow-lg);
+  animation: fadeInUp 0.4s ease;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.auth-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.auth-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.auth-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.auth-error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.form-input {
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  background: var(--bg-main);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  outline: none;
+}
+
+.form-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(27, 107, 74, 0.1);
+}
+
+.form-input::placeholder {
+  color: var(--text-muted);
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.auth-footer-text {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.auth-link {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
 }

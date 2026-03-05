@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useSession, signOut } from "next-auth/react";
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { data: session } = useSession();
 
     return (
         <nav className="navbar">
@@ -22,9 +24,21 @@ export default function Navbar() {
                     <Link href="/journey" className="navbar-link">
                         Perjalanan
                     </Link>
-                    <Link href="/login" className="navbar-link navbar-link--primary">
-                        Masuk
-                    </Link>
+                    {session ? (
+                        <>
+                            <span className="navbar-user">👤 {session.user?.name}</span>
+                            <button
+                                onClick={() => signOut({ callbackUrl: "/" })}
+                                className="navbar-link navbar-link--outline"
+                            >
+                                Keluar
+                            </button>
+                        </>
+                    ) : (
+                        <Link href="/login" className="navbar-link navbar-link--primary">
+                            Masuk
+                        </Link>
+                    )}
                 </div>
 
                 {/* Mobile hamburger */}
@@ -50,9 +64,21 @@ export default function Navbar() {
                     <Link href="/journey" className="navbar-mobile-link" onClick={() => setIsMenuOpen(false)}>
                         Perjalanan
                     </Link>
-                    <Link href="/login" className="navbar-mobile-link navbar-mobile-link--primary" onClick={() => setIsMenuOpen(false)}>
-                        Masuk
-                    </Link>
+                    {session ? (
+                        <>
+                            <span className="navbar-mobile-user">👤 {session.user?.name}</span>
+                            <button
+                                onClick={() => { signOut({ callbackUrl: "/" }); setIsMenuOpen(false); }}
+                                className="navbar-mobile-link navbar-mobile-link--outline"
+                            >
+                                Keluar
+                            </button>
+                        </>
+                    ) : (
+                        <Link href="/login" className="navbar-mobile-link navbar-mobile-link--primary" onClick={() => setIsMenuOpen(false)}>
+                            Masuk
+                        </Link>
+                    )}
                 </div>
             )}
         </nav>
