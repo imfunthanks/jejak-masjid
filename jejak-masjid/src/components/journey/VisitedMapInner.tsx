@@ -12,7 +12,16 @@ const defaultIcon = L.icon({
     popupAnchor: [1, -34],
 });
 
-export default function VisitedMapInner({ checkins }: { checkins: any[] }) {
+type CheckinData = {
+    mosque: {
+        id: string;
+        name: string;
+        latitude: number;
+        longitude: number;
+    }
+};
+
+export default function VisitedMapInner({ checkins }: { checkins: CheckinData[] }) {
     // Deduplicate mosques for the map
     const seen = new Set();
     const uniqueMosques = checkins.map(c => c.mosque).filter(m => {

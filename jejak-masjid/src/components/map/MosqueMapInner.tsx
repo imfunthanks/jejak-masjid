@@ -67,7 +67,8 @@ export default function MosqueMapInner() {
 
             setToast({ message: `✅ Berhasil check-in di ${mosqueName}`, type: "success" });
             setTimeout(() => setToast(null), 3000);
-        } catch (err: any) {
+        } catch (error) {
+            const err = error as Error;
             setToast({ message: `❌ ${err.message}`, type: "error" });
             setTimeout(() => setToast(null), 3000);
         } finally {

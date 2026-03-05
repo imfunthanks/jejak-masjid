@@ -1,6 +1,14 @@
 "use client";
 
-export default function JourneyStats({ checkins }: { checkins: any[] }) {
+type CheckinData = {
+    visitedAt: Date;
+    mosque: {
+        id: string;
+        city: string;
+    };
+};
+
+export default function JourneyStats({ checkins }: { checkins: CheckinData[] }) {
     const uniqueMosques = new Set(checkins.map(c => c.mosque.id)).size;
     const uniqueCities = new Set(checkins.map(c => c.mosque.city)).size;
 
@@ -9,8 +17,6 @@ export default function JourneyStats({ checkins }: { checkins: any[] }) {
     if (checkins.length > 0) {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
-
-        let currentDate = new Date(today);
 
         // Check if they checked in today or yesterday
         const lastCheckinDate = new Date(checkins[0].visitedAt);
