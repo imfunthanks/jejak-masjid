@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
 import L from "leaflet";
@@ -41,6 +43,37 @@ export default function MosqueMapInner() {
     const [mosques, setMosques] = useState<Mosque[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
+    const [toast, setToast] = useState<{ message: string; type: "success" | "error" } | null>(null);
+    const [checkingIn, setCheckingIn] = useState<string | null>(null);
+    const { data: session } = useSession();
+    const router = useRouter();
+
+    const handleCheckIn = async (mosqueId: string, mosqueName: string) => {
+        if (!session) {
+            router.push("/login?callbackUrl=/map");
+            return;
+        }
+
+        setCheckingIn(mosqueId);
+        try {
+            const res = await fetch("/api/checkin", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ mosqueId }),
+            });
+            const data = await res.json();
+
+            if (!res.ok) throw new Error(data.error || "Gagal check-in");
+
+            setToast({ message: `✅ Berhasil check-in di ${mosqueName}`, type: "success" });
+            setTimeout(() => setToast(null), 3000);
+        } catch (err: any) {
+            setToast({ message: `❌ ${err.message}`, type: "error" });
+            setTimeout(() => setToast(null), 3000);
+        } finally {
+            setCheckingIn(null);
+        }
+    };
 
     useEffect(() => {
         async function fetchMosques() {
@@ -111,12 +144,10 @@ export default function MosqueMapInner() {
                                     </p>
                                     <button
                                         className="btn btn-primary mosque-checkin-btn"
-                                        onClick={() => {
-                                            // Check-in will be implemented in Phase 4
-                                            alert(`Check-in ke ${mosque.name} akan tersedia segera!`);
-                                        }}
+                                        onClick={() => handleCheckIn(mosque.id, mosque.name)}
+                                        disabled={checkingIn === mosque.id}
                                     >
-                                        ✅ Check-in
+                                        {checkingIn === mosque.id ? "Memproses..." : "✅ Check-in"}
                                     </button>
                                 </div>
                             </Popup>
@@ -129,6 +160,13 @@ export default function MosqueMapInner() {
             {!loading && mosques.length > 0 && (
                 <div className="map-count-badge">
                     🕌 {mosques.length} masjid
+                </div>
+            )}
+
+            {/* Toast Notification */}
+            {toast && (
+                <div className="toast" style={toast.type === "error" ? { backgroundColor: "#dc2626" } : {}}>
+                    {toast.message}
                 </div>
             )}
         </div>
