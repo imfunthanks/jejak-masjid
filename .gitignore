@@ -29,3 +29,11 @@
 .windsurf
 .zencoder
 jejak-masjid/test-db.js
+
+# AI planning, screenshots, tasks, and skills
+.planning/
+skills/
+skills-lock.json
+Taskdeploy
+jejak_masjid_ai_dev_plan.md
+*Prototype Final.jpg
