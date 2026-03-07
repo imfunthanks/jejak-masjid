@@ -1,17 +1,9 @@
+import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { checkins, mosques } from "@/lib/db/schema";
 import { eq, desc } from "drizzle-orm";
-import { redirect } from "next/navigation";
-import JourneyStats from "@/components/journey/JourneyStats";
-import CheckinList from "@/components/journey/CheckinList";
-import VisitedMap from "@/components/journey/VisitedMap";
-import Link from "next/link";
-
-export const metadata = {
-    title: "Perjalananku — Jejak Masjid",
-    description: "Dasbor perjalanan kunjungan masjid Anda selama bulan Ramadan.",
-};
+import JourneyClient from "./JourneyClient";
 
 export default async function JourneyPage() {
     const session = await auth();
@@ -20,8 +12,8 @@ export default async function JourneyPage() {
     }
 
     const userId = session.user.id;
+    const userName = session.user.name || "Sobat Jannah";
 
-    // Fetch user checkins with attached mosque data
     const userCheckins = await db
         .select({
             id: checkins.id,
@@ -33,34 +25,15 @@ export default async function JourneyPage() {
         .where(eq(checkins.userId, userId))
         .orderBy(desc(checkins.visitedAt));
 
+    const totalMosques = new Set(userCheckins.map((c) => c.mosque.id)).size;
+    const totalCities = new Set(userCheckins.map((c) => c.mosque.city)).size;
+
     return (
-        <div className="container journey-container">
-            <div className="journey-header">
-                <h1 className="journey-title">Perjalanan Ramadan</h1>
-                <p className="journey-subtitle">Ahlan wa sahlan, {session.user.name}</p>
-            </div>
-
-            <JourneyStats checkins={userCheckins} />
-
-            <div className="journey-grid">
-                <div className="journey-main">
-                    <CheckinList checkins={userCheckins} />
-                </div>
-                <div className="journey-sidebar">
-                    <div className="journey-map-wrapper">
-                        <h3 className="sidebar-title">Peta Kunjungan</h3>
-                        <VisitedMap checkins={userCheckins} />
-                    </div>
-
-                    <div className="recap-teaser-card mt-4">
-                        <h3 className="sidebar-title">Pamerkan Perjalananmu!</h3>
-                        <p className="teaser-desc">Bagikan kartu rekapitulasi jejak masjidmu ke media sosial.</p>
-                        <Link href="/recap" className="btn btn-primary btn-full mt-2">
-                            Buat Recap Card
-                        </Link>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <JourneyClient
+            checkins={userCheckins}
+            totalMosques={totalMosques}
+            totalCities={totalCities}
+            userName={userName}
+        />
     );
 }

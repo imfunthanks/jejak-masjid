@@ -29,9 +29,7 @@ export async function GET() {
         const totalMosques = new Set(userCheckins.map((c) => c.mosque.id)).size;
         const totalCities = new Set(userCheckins.map((c) => c.mosque.city)).size;
 
-        // For edge runtime, calculate streak simply as total checkins for now to save compute, 
-        // or calculate it properly if date logic operates safely in Edge.
-        const streak = totalMosques > 0 ? 1 : 0; // Simplified for the image
+        // Streak is computed client-side for now
 
         return new ImageResponse(
             (

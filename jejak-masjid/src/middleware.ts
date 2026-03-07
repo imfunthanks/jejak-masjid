@@ -5,7 +5,7 @@ export default auth((req) => {
     const { pathname } = req.nextUrl;
 
     // Protected routes
-    const protectedPaths = ["/journey", "/api/checkin", "/api/recap"];
+    const protectedPaths = ["/journey", "/wrapped", "/recap", "/api/checkin", "/api/recap", "/api/wrapped"];
     const isProtected = protectedPaths.some((path) => pathname.startsWith(path));
 
     if (isProtected && !req.auth) {
@@ -18,5 +18,5 @@ export default auth((req) => {
 });
 
 export const config = {
-    matcher: ["/journey/:path*", "/api/checkin/:path*", "/api/recap/:path*"],
+    matcher: ["/journey/:path*", "/wrapped/:path*", "/recap/:path*", "/api/checkin/:path*", "/api/recap/:path*", "/api/wrapped/:path*"],
 };

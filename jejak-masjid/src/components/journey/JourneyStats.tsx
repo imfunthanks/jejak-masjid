@@ -52,18 +52,18 @@ export default function JourneyStats({ checkins }: { checkins: CheckinData[] }) 
     }
 
     return (
-        <div className="stats-grid" style={{ marginBottom: '2rem' }}>
-            <div className="stat-card">
-                <div className="stat-value">{uniqueMosques}</div>
-                <div className="stat-label">Masjid Dikunjungi</div>
+        <div className="bento-grid">
+            <div className="bento-card">
+                <div className="bento-value gradient-text">{uniqueMosques}</div>
+                <div className="bento-label">Masjid Dikunjungi</div>
             </div>
-            <div className="stat-card">
-                <div className="stat-value">{uniqueCities}</div>
-                <div className="stat-label">Kota Dijelajahi</div>
+            <div className="bento-card">
+                <div className="bento-value gradient-text">{uniqueCities}</div>
+                <div className="bento-label">Kota Dijelajahi</div>
             </div>
-            <div className="stat-card">
-                <div className="stat-value">{streak} 🔥</div>
-                <div className="stat-label">Hari Beruntun (Streak)</div>
+            <div className="bento-card">
+                <div className="bento-value">{streak} 🔥</div>
+                <div className="bento-label">Hari Beruntun (Streak)</div>
             </div>
         </div>
     );

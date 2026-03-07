@@ -1,6 +1,9 @@
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
 import { mosques } from "../src/lib/db/schema";
+import * as dotenv from "dotenv";
+
+dotenv.config({ path: ".env.local" });
 
 const connectionString = process.env.DATABASE_URL || "postgresql://postgres:password@localhost:5432/jejak_masjid";
 const client = postgres(connectionString);
