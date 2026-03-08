@@ -28,6 +28,9 @@ export default function Navbar() {
                         <Link href="/map" className="navbar-link">
                             Explore
                         </Link>
+                        <Link href="/feed" className="navbar-link">
+                            Feed
+                        </Link>
                         <Link href="/passport" className="navbar-link">
                             Passport
                         </Link>
@@ -72,6 +75,9 @@ export default function Navbar() {
                     <div className="navbar-mobile">
                         <Link href="/map" className="navbar-mobile-link" onClick={() => setIsMenuOpen(false)}>
                             Explore
+                        </Link>
+                        <Link href="/feed" className="navbar-mobile-link" onClick={() => setIsMenuOpen(false)}>
+                            Feed
                         </Link>
                         <Link href="/passport" className="navbar-mobile-link" onClick={() => setIsMenuOpen(false)}>
                             Passport
