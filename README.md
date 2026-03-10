@@ -1,125 +1,200 @@
 <div align="center">
-  <h1>🕌 Jejak Masjid</h1>
-  <p><strong>Explore mosques. Track your spiritual journey.</strong></p>
-  <p>A calm, map-based web application to explore mosques, check in visits, and visualize your spiritual journey during Ramadan.</p>
 
-  <p>
-    <img src="https://img.shields.io/badge/Next.js-Black?style=flat-square&logo=next.js&logoColor=white" alt="Next.js" />
-    <img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square" alt="MIT License" />
-    <img src="https://img.shields.io/badge/PRs-Welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome" />
-  </p>
+# 🕌 Jejak Masjid
+
+**Lacak Perjalanan Masjid Ramadanmu — Track Your Ramadan Mosque Journey**
+
+An open-source, map-based web app for exploring mosques, checking in visits, and visualizing your spiritual journey during Ramadan in Bandung, Indonesia.
+
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-jejak--masjid-1B6B4A?style=for-the-badge)](https://jejak-masjid-62zo.vercel.app/)
+[![Next.js](https://img.shields.io/badge/Next.js_16-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=for-the-badge)](CONTRIBUTING.md)
+
+[🌐 Live Demo](https://jejak-masjid-62zo.vercel.app/) · [📖 Documentation](#-getting-started) · [🐛 Report Bug](https://github.com/imfunthanks/jejak-masjid/issues) · [💡 Request Feature](https://github.com/imfunthanks/jejak-masjid/issues)
+
 </div>
 
-<br />
+---
 
-## 📱 Project Preview
+## � Preview
 
-Jejak Masjid offers a serene and engaging user interface designed for spiritual reflection. 
-
-* **Map Exploration:** A beautifully rendered interactive map highlighting mosques around Bandung.
-* **Mosque Passport:** A digital logbook that records each of your visits.
-* **Ramadan Recap Page:** A beautifully generated summary of your spiritual journey throughout the holy month.
-
-Users can effortlessly navigate the map to discover new mosques, click to "check in" upon visiting, and look back at a tangible record of their spiritual path.
+| Peta Masjid Interaktif | Passport & Check-in | Ramadan Recap |
+|:---:|:---:|:---:|
+| ![Map](Map%20Prototype%20Final.jpg) | ![Journey](Journey%20Prototype%20Final.jpg) | ![Recap](Recap%20Prototype%20Final.jpg) |
 
 ---
 
-## 💡 Why This Project Exists
+## ❓ What is Jejak Masjid?
 
-During Ramadan, many people make the effort to visit different mosques—seeking new atmospheres for Taraweeh, Itikaf, or daily prayers. However, they rarely have a way to reflect on or visualize this beautiful journey.
+**Jejak Masjid** (literally "Mosque Footprint") is a free, open-source web application that helps Muslims in Bandung track their mosque visits during Ramadan. It combines an interactive map with a personal travel journal, creating a meaningful digital record of your spiritual exploration.
 
-Jejak Masjid was built to solve this. It provides a peaceful, personal space for Muslims to track their mosque visits and meaningfully reflect on their spiritual exploration across the city.
+> **"Jejak Masjid is an open-source Ramadan mosque tracker that helps Muslims visualize their spiritual journey across Bandung's mosques."**
+
+### Key Capabilities
+
+- 🗺️ **Interactive Mosque Map** — Explore 100+ mosques across Bandung with detailed information
+- 📍 **One-Tap Check-in** — Record visits instantly when you arrive at a mosque
+- 🛂 **Digital Mosque Passport** — Beautiful stamp-style logbook of all your visits
+- 📊 **Ramadan Journey Dashboard** — Visualize your mosque exploration progress
+- 🎁 **Ramadan Wrapped** — Spotify-style yearly summary of your mosque visits
+- 📷 **Community Feed** — Share photos and experiences from your mosque visits
+- 🗓️ **Visit Planning** — Plan future mosque visits based on location
+- 🌐 **Crowdsourced Data** — Community-driven mosque database with GPS contributions
 
 ---
 
-## ✨ Features
+## 💡 Why Jejak Masjid?
 
-* 🌍 **Explore mosques** around Bandung on a highly interactive map
-* 📍 **Check in** easily when visiting a new or familiar mosque
-* 🔢 **Visualize your mosque journey** with distinct numbered map markers
-* 🗓️ **Plan future mosque visits** based on location and proximity
-* 🛂 **Track mosque visits** with a beautifully designed passport-style log
-* 📇 **Generate Ramadan journey recap cards** to commemorate your achievements
-* 🔗 **Share your progress** and meaningful moments with friends
+During Ramadan, many Muslims visit different mosques for Tarawih, Itikaf, and daily prayers. But there's no easy way to track or reflect on this spiritual journey.
+
+**Jejak Masjid solves this by providing:**
+1. A peaceful, personal space to record mosque visits
+2. Visual maps showing your journey across the city
+3. Beautiful recap cards to share with friends and family
+4. A community-driven mosque database that grows with each user
 
 ---
 
 ## 🛠️ Tech Stack
 
-Built with modern, robust, and performant technologies:
-
-* **Next.js** - React framework for production
-* **TypeScript** - Static typing for reliable code
-* **Tailwind CSS** - Utility-first styling for a serene UI
-* **Leaflet** - Open-source interactive map integration
-* **PostgreSQL** - Powerful, open-source relational database
-* **Drizzle ORM** - TypeScript ORM for type-safe database access
-
----
-
-## 🏗️ Project Architecture
-
-Jejak Masjid keeps the architecture simple, clean, and scalable:
-
-* **Frontend** → Built with Next.js (React) using Server Components for speed and SEO.
-* **API Layer** → Next.js Server routes handle secure data fetching and logic.
-* **Database** → PostgreSQL (managed schema via Drizzle ORM) stores user journeys and mosque data.
+| Layer | Technology | Purpose |
+|-------|-----------|---------|
+| **Framework** | [Next.js 16](https://nextjs.org/) | React framework with App Router & Server Components |
+| **Language** | [TypeScript](https://www.typescriptlang.org/) | Type-safe development |
+| **Styling** | [Tailwind CSS 4](https://tailwindcss.com/) | Utility-first CSS framework |
+| **Maps** | [Leaflet](https://leafletjs.com/) + [React Leaflet](https://react-leaflet.js.org/) | Interactive map rendering |
+| **Database** | [PostgreSQL](https://www.postgresql.org/) | Relational data storage |
+| **ORM** | [Drizzle ORM](https://orm.drizzle.team/) | Type-safe database queries |
+| **Auth** | [NextAuth.js v5](https://authjs.dev/) | Authentication & sessions |
+| **Storage** | [Vercel Blob](https://vercel.com/docs/storage/vercel-blob) | Photo upload storage |
+| **Hosting** | [Vercel](https://vercel.com/) | Serverless deployment |
+| **Animation** | [Framer Motion](https://www.framer.com/motion/) | Smooth UI transitions |
 
 ---
 
 ## 🚀 Getting Started
 
-Follow these steps to run Jejak Masjid locally on your machine.
+### Prerequisites
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/imfunthanks/jejak-masjid.git
-   cd jejak-masjid
-   ```
+- **Node.js** 18+ and **npm**
+- **PostgreSQL** database (local or hosted, e.g., [Neon](https://neon.tech/), [Supabase](https://supabase.com/))
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+### Installation
 
-3. **Set up environment variables**
-   Copy the example environment file and configure your database variables.
-   ```bash
-   cp .env.example .env.local
-   ```
+```bash
+# 1. Clone the repository
+git clone https://github.com/imfunthanks/jejak-masjid.git
+cd jejak-masjid
 
-4. **Run the development server**
-   ```bash
-   npm run dev
-   ```
-   Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+# 2. Install dependencies
+npm install
+
+# 3. Configure environment
+cp .env.example .env.local
+# Edit .env.local with your DATABASE_URL and NEXTAUTH_SECRET
+
+# 4. Set up the database
+npm run db:push
+npm run db:seed
+
+# 5. Start development server
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) to see the app.
+
+### Environment Variables
+
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `DATABASE_URL` | PostgreSQL connection string | ✅ |
+| `NEXTAUTH_SECRET` | Random secret for auth sessions | ✅ |
+| `NEXTAUTH_URL` | App URL (e.g., `http://localhost:3000`) | ✅ |
+| `BLOB_READ_WRITE_TOKEN` | Vercel Blob storage token | Optional |
+
+---
+
+## 🏗️ Project Architecture
+
+```
+src/
+├── app/                    # Next.js App Router pages
+│   ├── api/                # API routes (checkin, mosques, feed)
+│   ├── artikel/            # SEO content pages
+│   ├── map/                # Interactive mosque map
+│   ├── journey/            # Journey dashboard
+│   ├── passport/           # Digital mosque passport
+│   ├── recap/              # Ramadan recap generator
+│   ├── wrapped/            # Wrapped-style summary
+│   ├── feed/               # Community photo feed
+│   ├── tentang/            # About page (E-E-A-T)
+│   ├── robots.ts           # SEO robots.txt
+│   ├── sitemap.ts          # SEO sitemap.xml
+│   └── layout.tsx          # Root layout with JSON-LD schemas
+├── components/
+│   ├── home/               # Homepage components
+│   ├── map/                # Map-related components
+│   └── ui/                 # Shared UI (Navbar, Footer, Breadcrumbs)
+├── db/                     # Database schema & connection
+└── lib/                    # Utilities & helpers
+```
 
 ---
 
 ## 🗺️ Roadmap
 
-We are continuously improving Jejak Masjid to make it more meaningful for the community. Here are our upcoming focuses:
-
-* [ ] Mosque passport system improvements (digital stamps, visit streaks)
-* [ ] Ramadan journey recap storytelling (shareable Spotify-wrapped style summaries)
-* [ ] Global mosque dataset (expanding beyond Bandung)
+- [x] Interactive mosque map with 100+ locations
+- [x] One-tap check-in system
+- [x] Digital mosque passport
+- [x] Ramadan Wrapped recap
+- [x] Community photo feed
+- [x] Crowdsourced mosque additions (GPS)
+- [x] SEO optimization (robots.txt, sitemap, JSON-LD)
+- [ ] Mosque passport digital stamps & visit streaks
+- [ ] Global mosque dataset (expanding beyond Bandung)
+- [ ] Multi-language support (English + Arabic)
+- [ ] Mobile app (React Native)
 
 ---
 
 ## 🤝 Contributing
 
-We welcome all contributions! Whether it's adding new features, fixing bugs, or improving documentation, your help makes a difference.
+Contributions are what make the open-source community amazing. Any contributions you make are **greatly appreciated**.
 
-If you have a feature idea or found a bug, please open an issue. Pull requests are highly encouraged. Jejak Masjid is an open-source project built *by* the community, *for* the community.
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'feat: add amazing feature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 ---
 
-## 🕌 Community Purpose
+## 🕌 Community & Purpose
 
-Jejak Masjid is more than just an app; it is a community initiative intended to help people reconnect with their local mosques and reflect deeply on their spiritual journeys. As an open-source project, it represents our shared commitment to building technology that serves a higher purpose.
+Jejak Masjid is more than just an app — it's a community initiative to help Muslims reconnect with their local mosques and reflect on their spiritual journeys. As an open-source project, it represents our shared commitment to building technology that serves a higher purpose.
+
+**Built with ❤️ for the Muslim community in Bandung, Indonesia.**
 
 ---
 
 ## 📜 License
 
-This project is licensed under the [MIT License](LICENSE).
+Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
+
+---
+
+## 🔗 Links
+
+- **Live App:** [jejak-masjid-62zo.vercel.app](https://jejak-masjid-62zo.vercel.app/)
+- **GitHub:** [github.com/imfunthanks/jejak-masjid](https://github.com/imfunthanks/jejak-masjid)
+- **Issues:** [Report a Bug](https://github.com/imfunthanks/jejak-masjid/issues)
+
+---
+
+<div align="center">
+  <sub>Built with 🕌 by <a href="https://github.com/imfunthanks">imfunthanks</a> — Open Source for the Ummah</sub>
+</div>

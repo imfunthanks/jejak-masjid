@@ -4,6 +4,12 @@ import { checkins, mosques, users } from "@/lib/db/schema";
 import { eq, desc } from "drizzle-orm";
 import { redirect } from "next/navigation";
 import PassportCard from "@/components/passport/PassportCard";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Passport Masjid",
+    description: "Passport digital pribadimu — kumpulan stempel kunjungan masjid selama Ramadan. Lihat riwayat dan rute perjalanan spiritualmu.",
+};
 
 export default async function PassportPage() {
     const session = await auth();

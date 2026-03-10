@@ -1,0 +1,24 @@
+{
+    "name": "Jejak Masjid",
+    "short_name": "Jejak Masjid",
+    "description": "Jelajahi masjid, catat kunjungan, dan lacak perjalanan spiritual Ramadanmu.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#F5F0E8",
+    "theme_color": "#1A5A4A",
+    "orientation": "portrait-primary",
+    "lang": "id",
+    "icons": [
+        {
+            "src": "/og-image.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        }
+    ],
+    "categories": [
+        "lifestyle",
+        "social",
+        "religion"
+    ]
+}

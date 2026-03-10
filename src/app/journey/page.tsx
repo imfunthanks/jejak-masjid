@@ -4,6 +4,12 @@ import { db } from "@/lib/db";
 import { checkins, mosques } from "@/lib/db/schema";
 import { eq, desc } from "drizzle-orm";
 import JourneyClient from "./JourneyClient";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Dashboard Perjalanan",
+    description: "Lihat statistik perjalanan masjidmu — total masjid dikunjungi, kota dijelajahi, dan streak harian Ramadanmu.",
+};
 
 export default async function JourneyPage() {
     const session = await auth();

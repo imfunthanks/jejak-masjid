@@ -30,7 +30,7 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# env files
 .env*
 
 # vercel
@@ -39,6 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# AI agent directories
 .adal
 .agent
 .agents
@@ -69,13 +71,12 @@ next-env.d.ts
 .vibe
 .windsurf
 .zencoder
-jejak-masjid/test-db.js
 
-# AI planning, screenshots, tasks, and skills
+# AI planning and internal docs
 .planning/
 skills/
 skills-lock.json
 Taskdeploy
 jejak_masjid_ai_dev_plan.md
-*Prototype Final.jpg
-.vercel
+PRD.md
+jejak-masjid/test-db.js

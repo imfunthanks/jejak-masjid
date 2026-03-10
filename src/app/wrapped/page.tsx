@@ -4,6 +4,12 @@ import { db } from "@/lib/db";
 import { checkins, mosques } from "@/lib/db/schema";
 import { eq, desc } from "drizzle-orm";
 import WrappedSlideshow from "./WrappedSlideshow";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Wrapped Ramadan",
+    description: "Ramadan Wrapped — presentasi interaktif perjalanan spiritualmu. Total masjid, streak, badge, dan pencapaian Ramadanmu.",
+};
 
 export default async function WrappedPage() {
     const session = await auth();

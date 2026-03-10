@@ -26,21 +26,21 @@ export default function Navbar() {
                     {/* Desktop nav */}
                     <div className="navbar-links">
                         <Link href="/map" className="navbar-link">
-                            Explore
+                            Peta Masjid
                         </Link>
                         <Link href="/feed" className="navbar-link">
-                            Feed
+                            Feed Komunitas
                         </Link>
                         <Link href="/passport" className="navbar-link">
                             Passport
                         </Link>
                         <Link href="/journey" className="navbar-link">
-                            Journey
+                            Perjalanan
                         </Link>
                         {session ? (
                             <>
                                 <Link href="/profile" className="navbar-link">
-                                    Profile
+                                    Profil
                                 </Link>
                                 <button
                                     onClick={() => signOut({ callbackUrl: "/" })}
@@ -74,21 +74,21 @@ export default function Navbar() {
                 {isMenuOpen && (
                     <div className="navbar-mobile">
                         <Link href="/map" className="navbar-mobile-link" onClick={() => setIsMenuOpen(false)}>
-                            Explore
+                            Peta Masjid
                         </Link>
                         <Link href="/feed" className="navbar-mobile-link" onClick={() => setIsMenuOpen(false)}>
-                            Feed
+                            Feed Komunitas
                         </Link>
                         <Link href="/passport" className="navbar-mobile-link" onClick={() => setIsMenuOpen(false)}>
                             Passport
                         </Link>
                         <Link href="/journey" className="navbar-mobile-link" onClick={() => setIsMenuOpen(false)}>
-                            Journey
+                            Perjalanan
                         </Link>
                         {session ? (
                             <>
                                 <Link href="/profile" className="navbar-mobile-link" onClick={() => setIsMenuOpen(false)}>
-                                    Profile ({session.user?.name})
+                                    Profil ({session.user?.name})
                                 </Link>
                                 <button
                                     onClick={() => { signOut({ callbackUrl: "/" }); setIsMenuOpen(false); }}

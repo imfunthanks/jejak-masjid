@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Profil",
+    description: "Profil pengguna Jejak Masjid — lihat dan kelola akun perjalanan masjidmu.",
+};
+
 export default function ProfilePage() {
     return (
         <div className="min-h-screen bg-[var(--bg-main)] text-[var(--text-primary)] pt-24 px-6">

@@ -4,6 +4,12 @@ import { db } from "@/lib/db";
 import { checkins, mosques } from "@/lib/db/schema";
 import { eq, desc } from "drizzle-orm";
 import RecapClient from "./RecapClient";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Recap Ramadan",
+    description: "Buat kartu recap perjalanan Ramadanmu yang cantik — rangkuman masjid dikunjungi, streak, dan pencapaian selama bulan suci.",
+};
 
 export default async function RecapPage() {
     const session = await auth();
